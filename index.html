@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ouafaa El Moutaki - Ingénieure Informatique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f8fafc;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            padding: 50px 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-photo-placeholder {
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .profile-info h2 {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #2563eb;
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: 600;
+        }
+
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-category h4 {
+            color: #374151;
+            margin-bottom: 10px;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .language-item, .cert-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .language-item:last-child, .cert-item:last-child {
+            border-bottom: none;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .language-level {
+            color: #64748b;
+            font-size: 0.9em;
+        }
+
+        .cert-item {
+            font-size: 0.9em;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 3px;
+        }
+
+        .cert-org {
+            color: #64748b;
+            font-size: 0.9em;
+        }
+
+        /* Main Section */
+        .main-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-title {
+            color: #1e3a8a;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+
+        .about-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #2563eb;
+        }
+
+        .about-section p {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .experience-item, .education-item, .project-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            border-left: 4px solid #2563eb;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .experience-item:hover, .education-item:hover, .project-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .exp-title {
+            font-size: 1.2em;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .exp-company {
+            color: #2563eb;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .exp-date {
+            background: #dbeafe;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .exp-description {
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .exp-highlights {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .exp-highlights li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
+        .exp-highlights li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tool-tag {
+            background: #f1f5f9;
+            color: #334155;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a8a;
+            padding: 25px;
+            text-align: center;
+            color: white;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .profile-header {
+                flex-direction: column;
+            }
+
+            .profile-info h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 20px;
+            }
+            
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .exp-date {
+                align-self: flex-start;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            
+            .experience-item, .education-item, .project-item {
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="profile-header">
+                <div class="profile-photo">
+                    <!-- Remplacez le commentaire ci-dessous par votre photo -->
+                  <img src="photo.jpg" alt="Ouafaa El Moutaki"> 
+                   
+                </div>
+                <div class="profile-info">
+                    <h1>Ouafaa EL MOUTAKI</h1>
+                    <h2>Ingénieure d'État en Génie Informatique - Option MIAGE</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            📧 <a href="mailto:ouafaeelmoutaki@gmail.com">ouafaeelmoutaki@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            📱 0639-397364
+                        </div>
+                        <div class="contact-item">
+                            📍 Maroc - Mobilité Nationale
+                        </div>
+                        <div class="contact-item">
+                            💼 <a href="https://www.linkedin.com/in/ouafae-el-moutaki-7015251bb" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Compétences -->
+                <div class="card">
+                    <h3>Compétences Techniques</h3>
+                    
+                    <div class="skill-category">
+                        <h4>Langages</h4>
+                        <div class="skill-tags">
+                            <span class="tag">C/C++</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">PL/SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Frameworks</h4>
+                        <div class="skill-tags">
+                            <span class="tag">ASP.NET</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Django</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Web</h4>
+                        <div class="skill-tags">
+                            <span class="tag">HTML5/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Bases de données</h4>
+                        <div class="skill-tags">
+                            <span class="tag">MySQL</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Outils & Méthodologies</h4>
+                        <div class="skill-tags">
+                            <span class="tag">UML</span>
+                            <span class="tag">Merise</span>
+                            <span class="tag">Agile</span>
+                            <span class="tag">VMware</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Langues -->
+                <div class="card">
+                    <h3>Langues</h3>
+                    <div class="language-item">
+                        <div class="language-name">Arabe</div>
+                        <div class="language-level">Langue maternelle</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Français</div>
+                        <div class="language-level">Très bon niveau</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Anglais</div>
+                        <div class="language-level">Bon niveau</div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="card">
+                    <h3>Certifications</h3>
+                    <div class="cert-item">
+                        <div class="cert-title">Building Scalable Java Microservices</div>
+                        <div class="cert-org">Google Cloud</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">React Basics</div>
+                        <div class="cert-org">Meta</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Java and OOP</div>
+                        <div class="cert-org">University of Pennsylvania</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Python Data Structures</div>
+                        <div class="cert-org">University of Michigan</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Software Engineering with UML</div>
+                        <div class="cert-org">Hong Kong University</div>
+                    </div>
+                </div>
+
+                <!-- Aptitudes -->
+                <div class="card">
+                    <h3>Aptitudes</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Coopération</span>
+                        <span class="tag">Rigueur</span>
+                        <span class="tag">Adaptabilité</span>
+                        <span class="tag">Responsabilité</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Section -->
+            <main class="main-section">
+                <!-- À propos -->
+                <section class="about-section">
+                    <h3 class="section-title">À propos</h3>
+                    <p>
+                        Récemment diplômée en ingénierie informatique et réseaux, option MIAGE, de l'École Marocaine des Sciences de l'Ingénieur (EMSI) à Rabat. Je suis actuellement à la recherche d'un emploi me permettant de mettre en pratique mes compétences en développement logiciel et systèmes d'information, acquises au cours de ma formation et de mes expériences académiques.
+                    </p>
+                </section>
+
+                <!-- Expériences -->
+                <section>
+                    <h3 class="section-title">Expériences Professionnelles</h3>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Stage PFE - Développement Full Stack</div>
+                                <div class="exp-company">REDAL - Rabat</div>
+                            </div>
+                            <div class="exp-date">Mars 2025 - Août 2025</div>
+                        </div>
+                        <div class="exp-description">
+                            Amélioration et optimisation de l'intranet de gestion des appels d'offres et marchés
+                        </div>
+                        <ul class="exp-highlights">
+                            <li>Création de nouvelles sections (DAD NULL, nantissements, non reconduits)</li>
+                            <li>Ajout de champs spécialisés avec filtrage dynamique</li>
+                            <li>Correction des blocages liés aux valeurs NULL</li>
+                            <li>Gestion conditionnelle selon le type d'appels d'offres</li>
+                            <li>Automatisation des notifications pour reconductions/renouvellements</li>
+                            <li>Système de notifications en temps réel</li>
+                            <li>Optimisation de l'affichage et de l'expérience utilisateur</li>
+                        </ul>
+                        <div class="tools">
+                            <span class="tool-tag">C#</span>
+                            <span class="tool-tag">ASP.NET Web Forms</span>
+                            <span class="tool-tag">SQL Server Express</span>
+                            <span class="tool-tag">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Stage PFA - Développement Web</div>
+                                <div class="exp-company">ECS INFORMATIQUE - Rabat</div>
+                            </div>
+                            <div class="exp-date">Juillet - Septembre 2024</div>
+                        </div>
+                        <div class="exp-description">
+                            Conception et création d'une application web de gestion des appels d'offres et des marchés
+                        </div>
+                        <div class="tools">
+                            <span class="tool-tag">C#</span>
+                            <span class="tool-tag">.NET</span>
+                            <span class="tool-tag">JavaScript</span>
+                            <span class="tool-tag">HTML/CSS</span>
+                            <span class="tool-tag">SQLite</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Stage d'initiation</div>
+                                <div class="exp-company">S2S - Casablanca</div>
+                            </div>
+                            <div class="exp-date">Juillet - Août 2023</div>
+                        </div>
+                        <div class="exp-description">
+                            Conception et création d'une application web de gestion de personnel
+                        </div>
+                        <div class="tools">
+                            <span class="tool-tag">PHP</span>
+                            <span class="tool-tag">Bootstrap</span>
+                            <span class="tool-tag">JavaScript</span>
+                            <span class="tool-tag">MySQL</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Formation -->
+                <section>
+                    <h3 class="section-title">Formation</h3>
+                    
+                    <div class="education-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Ingénieure en Génie Informatique</div>
+                                <div class="exp-company">École Marocaine des Sciences de l'Ingénieur (EMSI) - Rabat</div>
+                            </div>
+                            <div class="exp-date">2020 - 2025</div>
+                        </div>
+                        <div class="exp-description">
+                            Spécialisation : Ingénierie Informatique et Réseaux - Option MIAGE
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">Baccalauréat Sciences Physiques et Chimiques</div>
+                                <div class="exp-company">Lycée Abdelmalek Essaadi - Kénitra</div>
+                            </div>
+                            <div class="exp-date">2019 - 2020</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projets -->
+                <section>
+                    <h3 class="section-title">Projets Académiques</h3>
+                    
+                    <div class="project-item">
+                        <div class="exp-title">Application web de gestion des DADs pour Redal</div>
+                        <div class="tools">
+                            <span class="tool-tag">Spring Boot</span>
+                            <span class="tool-tag">React</span>
+                            <span class="tool-tag">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="exp-title">Outil d'apprentissage en ligne</div>
+                        <div class="tools">
+                            <span class="tool-tag">Django</span>
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">SQLite</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="exp-title">Site web Tramway Rabat/Salé</div>
+                        <div class="tools">
+                            <span class="tool-tag">Django</span>
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">SQLite</span>
+                            <span class="tool-tag">StarUML</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="exp-title">Application E-commerce</div>
+                        <div class="tools">
+                            <span class="tool-tag">.NET</span>
+                            <span class="tool-tag">SQLite</span>
+                            <span class="tool-tag">CRUD</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Ouafaa El Moutaki - Tous droits réservés</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Disponible pour opportunités professionnelles</p>
+        </footer>
+    </div>
+</body>
+</html>
